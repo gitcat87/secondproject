@@ -7,8 +7,10 @@
     const $title = document.getElementById('title-area')
     const $writer = document.getElementById('writer-area')
     const $btn =document.getElementById('submit-btn')
+    const $cancle = document.getElementById('cancle-btn');
     const h4 =document.querySelector('h4');
     const $form =document.querySelector('form');
+    
 
     setTimeout(() => {
     document.body.classList.add("reveal");
@@ -17,7 +19,14 @@
     $txar.addEventListener('click',()=>{
         $txar.textContent = ""       
     })
+    $txar.addEventListener('keydown',()=>{
+      $txar.textContent=""
+    },{once:true})
 
+    
+    $cancle.addEventListener('click',()=>{
+      window.location.href ="/freeboard/board"
+    })
 
 
     $btn.addEventListener("click",(e)=>{    
@@ -109,15 +118,17 @@
       <input id="writer-area"class="form-control" type="text" name="writer">
       <h6>내용</h6>
       <textarea id="content-area"name="content" class="form-control" rows="10" style="resize: none;">내용을 입력하세요.</textarea>
-      <div style="margin-top: 1rem;">
-      <button class="btn btn-primary"><a href="board" >취소</a></button>
-      <input id="submit-btn"class="btn btn-primary" type="submit" value="확인" style="margin-left: 2rem;">
+      <div style="display: flex; justify-content: center; margin-top:2rem;">
+        <button type="button" class="btn btn-primary" id="cancle-btn">취소</button>    
+      <input id="submit-btn"class="btn btn-warning" type="submit" value="확인" style="margin-left: 3rem;" >
     </div>
      </form>
+     </div>
      
-    </div>   
     </div>
-  </div>
+     </div>
+     
+
   <div id="view-bottom" style="display: flex; justify-content: center; margin-top: 1rem ;">
   </div>
 

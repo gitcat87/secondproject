@@ -1,23 +1,30 @@
 {% extends 'base.html'%} {% block video2%}
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const $title = document.getElementById("title-area");
-    const $writer = document.getElementById("writer-area");
-    const $btn = document.getElementById("submit-btn");
-    const $form = document.querySelector("form");
+    const $title = document.getElementById('title-area')
+    const $writer =  document.getElementById('writer-area')
+    const $btn = document.getElementById('submit-btn')
+    const $form = document.querySelector('form')
+    const $text = document.querySelector('textarea')
+
 
     setTimeout(() => {
       document.body.classList.add("reveal");
-    }, 500);
-    
-    $btn.addEventListener("click", e => {
-      e.preventDefault(); // 기본 기능 막기
-      if ($title.value.length < 1 || $writer.value.length < 1) {
-        alert("제목 또는 작성자에 내용이 필요합니다");
-      } else {
-        $form.submit();
+    }, 500);    
+ 
+
+    $btn.addEventListener('click',(e)=>{
+      e.preventDefault(); //기본 기능 막기
+      if($title.value.length<1||$writer.value.length<1){
+        alert('제목 또는 작성자에 내용이 필요합니다')        
       }
-    });
+      else{
+        alert('수정되었습니다')
+        $form.submit()
+        
+      }
+    })
+
   });
 </script>
 <div id="loader" style="z-index: 1">
@@ -107,7 +114,7 @@
             <a href="/freeboard/view?idx={{res[0]}}">취소</a>
           </button>
           <input
-            id="submi-btn"
+            id="submit-btn"
             class="btn btn-primary"
             type="submit"
             value="확인"
